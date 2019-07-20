@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_balance: 9.99
+  count_balance: 1
+  total_balance: 9.99
+  scale_archiveds_detail: 1
+
+two:
+  current_balance: 9.99
+  count_balance: 1
+  total_balance: 9.99
+  scale_archiveds_detail: 1

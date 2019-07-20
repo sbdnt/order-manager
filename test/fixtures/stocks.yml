@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sto_name: MyString
+  sto_address: MyString
+  sto_desc: MyText
+  sto_manager: MyString
+
+two:
+  sto_name: MyString
+  sto_address: MyString
+  sto_desc: MyText
+  sto_manager: MyString

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_input: 9.99
+  total_output_1: 9.99
+  total_output_2: 9.99
+  total_output_3: 9.99
+  total_output_4: 9.99
+  total_output_5: 
+  customer_name: 
+  customer_phone: 
+  customer_address: MyString
+
+two:
+  total_input: 9.99
+  total_output_1: 9.99
+  total_output_2: 9.99
+  total_output_3: 9.99
+  total_output_4: 9.99
+  total_output_5: 
+  customer_name: 
+  customer_phone: 
+  customer_address: MyString

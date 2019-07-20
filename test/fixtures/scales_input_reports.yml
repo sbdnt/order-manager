@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_balance: 9.99
+  count_balance: 1
+  total_balance: 9.99
+  is_deleted: false
+  description: 
+  reporter: MyString
+
+two:
+  current_balance: 9.99
+  count_balance: 1
+  total_balance: 9.99
+  is_deleted: false
+  description: 
+  reporter: MyString

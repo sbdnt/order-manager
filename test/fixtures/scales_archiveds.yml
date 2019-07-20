@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_input: 9.99
+  total_output_1: 9.99
+  total_output_2: 9.99
+  total_output_3: 9.99
+  total_output_4: 9.99
+  percent_lost: 9.99
+  start_date: 2019-03-31 18:46:22
+  end_date: 2019-03-31 18:46:22
+  customer_info: MyString
+  ship_info: MyString
+  stock_info: MyString
+  desc_info: MyString
+  is_deleted: false
+
+two:
+  total_input: 9.99
+  total_output_1: 9.99
+  total_output_2: 9.99
+  total_output_3: 9.99
+  total_output_4: 9.99
+  percent_lost: 9.99
+  start_date: 2019-03-31 18:46:22
+  end_date: 2019-03-31 18:46:22
+  customer_info: MyString
+  ship_info: MyString
+  stock_info: MyString
+  desc_info: MyString
+  is_deleted: false
