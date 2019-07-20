@@ -1,0 +1,37 @@
+<h2>Đổi Mật Khẩu</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label "Mật Khẩu Mới" %> <i>(Để trống nếu không muốn thay đổi)</i><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label "Xác Nhận Mật Khẩu Mới" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label "Mật Khẩu Hiện Tại" %> <i>(Nhập mật khẩu để xác nhận.)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Xác Nhận", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<p> <%= button_to "Hủy Tài Khoản", registration_path(resource_name), data: { confirm: "Xác Nhận Hủy?" }, method: :delete, class: "btn btn-danger" %></p>
+
+<%= link_to "Trang Trước", :back, class: "btn btn-default" %>

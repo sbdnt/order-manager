@@ -1,0 +1,61 @@
+<br>
+<div class="panel panel-primary">
+  <div id="print_section">
+    <div class="panel-heading"><h2>Kế hoạch thực hiện đơn hàng</h2></div>
+    <div class="panel-body">
+      <p>
+        <strong>Mã đơn hàng:</strong>
+        <%= @order.orderID %>
+      </p>
+      <p>
+        <strong>Tên đơn hàng:</strong>
+        <%= @order.name %>
+      </p>
+      <p>
+        <strong>Khách Hàng:</strong>
+        <%= @order.customer_info %>
+      </p>
+      <p>
+        <strong>Kho hàng:</strong>
+        <%= @order.stock_info %>
+      </p>
+      <p>
+        <strong>Ngày bắt đầu:</strong>
+        <%= @order.start_date.strftime("%d/%m/%Y") rescue nil %>
+      </p>
+      <p>
+        <strong>Ngày giao hàng:</strong>
+        <%= @order.end_date.strftime("%d/%m/%Y") rescue nil %>
+      </p>
+      <p>
+        <strong>Ghi Chú:</strong>
+        <%= @order.desc%>
+      </p>
+    </div>
+  </div> 
+  <div class="panel-footer">
+    <a href="#" class="btn btn-primary" onclick="javascript:printerDiv('print_section')">
+      <span class="glyphicon glyphicon-print"></span> In Phiếu
+    </a>
+    <%= link_to 'Chỉnh sửa', edit_order_path(@order), class: 'btn btn-success' %>
+    <%= link_to 'Danh sách đơn hàng ', orders_path, class: 'btn btn-info' %>
+  </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+  function printerDiv(divID) {
+    //Get the HTML of div
+    var divElements = document.getElementById(divID).innerHTML;
+    //Get the HTML of whole page
+    var oldPage = document.body.innerHTML;
+    //Reset the pages HTML with divs HTML only
+     document.body.innerHTML = "<html><head><title>CTY TNHH ABC</title></head><body>" + 
+     divElements + "</body>";
+    //Print Page
+    window.print();
+    //Restore orignal HTML
+    document.body.innerHTML = oldPage;
+  }
+</script>
+
+

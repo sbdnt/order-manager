@@ -1,0 +1,63 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Lịch Thực Hiện Đơn Hàng</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="well controls">
+            <%= link_to calendar_show_path(date: @date - 1.month), class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-backward"></i>
+            <% end %>
+            <%= "Tháng #{@date.strftime("%m")} Năm #{@date.year}" %>
+            <%= link_to calendar_show_path(date: @date + 1.month), class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-forward"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%= form_with url: calendar_move_task_path, remote: false  do |form|  %>
+        <div class="row">
+          <div class="col-md-12 text-lelf">
+            <%= calendar @date do |date| %>
+              <%= date.day %>
+              <% Event.get_event_date(date).each do |event| %>
+                <p class=""><input type="checkbox" name="tasks[]"  value="<%=event[:key]%>">&nbsp<%= event[:value] %></p>
+              <% end %>
+            <%end%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="well controls">
+              <div class="form-group">
+                <h4>Chọn công việc cần dịch chuyển trên lịch</h4>
+              </div>
+              <div>
+              Số ngày dịch chuyển: <%= select_tag :days, options_for_select([['01',1],['02',2],['03',3],['04',4],['05',5],['06',6], ['07',7], ['08',8], ['09',9], ['10',10]]) %>&nbsp<%= select_tag :dir, options_for_select([['Về trước',1],['Về sau',2]]) %> 
+            </div>
+            <br/>
+            <div class="actions">
+              <%= form.submit "Đồng Ý", class: "btn btn-primary" %>
+            </div>
+            </div>
+          </div>
+        </div>
+      <%end%>  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="well controls">
+            <div class="form-group">
+              <h4>Thông tin đơn hàng trong tháng</h4>
+            </div>
+            <ul>
+              <% @orders.each do |order| %>
+                <li>Đơn hàng <%= link_to order.orderID, order, target: :_blank %>&nbspNgày bắt đầu : <%= order.start_date.strftime("%d/%m/%Y")%>&nbspNgày giao: <%= order.end_date.strftime("%d/%m/%Y")%> </li>
+              <%end%>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>  

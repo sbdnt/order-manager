@@ -1,0 +1,45 @@
+<div class="well">
+  <div class="row">
+    <%= form_with(model: customer, local: true) do |form| %>
+      <% if customer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+          <ul>
+          <% customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label "Tên Khách Hàng:" %>
+          <%= form.text_field :cust_name, class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%= form.label "Điện Thoại:" %>
+          <%= form.text_field :cust_phone, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Địa Chỉ:" %>
+          <%= form.text_field :cust_address, class: "form-control datepicker" %>
+        </div>
+        <div>
+          <%= form.submit "Đồng Ý", class: "btn btn-primary"  %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label "Quốc Gia:" %>
+          <%= form.text_field :cust_nation, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Mô Tả:" %>
+          <%= form.text_field :cust_desc, class: "form-control" %>
+        </div>
+        <div class="form-group">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>  

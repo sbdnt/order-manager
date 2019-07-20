@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Chỉnh sửa đơn hàng</div>
+    <div class="panel-body">
+			<%= render 'form', order: @order %>
+			<%= link_to 'Chi tiết', @order, class: "btn btn-info" %>
+			<%= link_to 'Trang trước', orders_path, class: "btn btn-info" %>
+		</div>
+	</div>
+</div>		

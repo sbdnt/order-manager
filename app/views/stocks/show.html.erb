@@ -1,0 +1,30 @@
+<br>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h2>Chi Tiết Kho Hàng</h2></div>
+  <div class="panel-body">
+    <p>
+      <strong>Tên Kho:</strong>
+      <%= @stock.sto_name %>
+    </p>
+
+    <p>
+      <strong>Địa Chỉ:</strong>
+      <%= @stock.sto_address %>
+    </p>
+
+    <p>
+      <strong>Người Quản Lý:</strong>
+      <%= @stock.sto_manager %>
+    </p>
+
+    <p>
+      <strong>Thông Tin Phụ:</strong>
+      <%= @stock.sto_desc %>
+    </p>
+
+  </div>
+  <div class="panel-footer">
+    <%= link_to 'Chỉnh Sửa', edit_stock_path(@stock), class: 'btn btn-primary' %>
+    <%= link_to 'DS Kho Hàng', stocks_path, class: 'btn btn-info' %>
+  </div>
+</div>

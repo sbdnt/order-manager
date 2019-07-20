@@ -1,0 +1,144 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-datepicker3";
+
+#main-container {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.devise-container {
+  width: 345px;
+  padding-left: 15px;
+}
+
+.product-block {
+  width: 750px;
+}
+
+.btn {
+  text-decoration: none;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+th {
+  background-color: #333333;
+  color: white;
+}
+
+td {
+  background-color: #808080;
+  color: white;
+}
+
+.panel-heading {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.run {
+  font-weight: bold;
+  color: green;
+}
+
+.stop{
+  font-weight: bold;
+  color: red;
+}
+
+.badge.text.stop {
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+}
+
+.badge.text.run {
+  font-weight: bold;
+  color: green;
+  font-size: 20px;
+}
+
+.badge.number.red {
+  font-weight: bold;
+  color: red;
+  font-size: 30px;
+}
+
+.badge.number.orange {
+  font-weight: bold;
+  color: orange;
+  font-size: 30px;
+}
+
+.badge.number.green {
+  font-weight: bold;
+  color: green;
+  font-size: 30px;
+}
+
+
+.text.stop.manage {
+  font-weight: bold;
+  color: red;
+  font-size: 15px;
+}
+
+.text.run.manage {
+  font-weight: bold;
+  color: green;
+  font-size: 15px;
+}
+
+.number.red.manage {
+  font-weight: bold;
+  color: red;
+  font-size: 15px;
+}
+
+.number.orange.manage {
+  font-weight: bold;
+  color: orange;
+  font-size: 15px;
+}
+
+.number.green.manage {
+  font-weight: bold;
+  color: green;
+  font-size: 15px;
+}
+
+
+.btn-search {
+  background: #424242;
+  border-radius: 0;
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #1c1c1c;
+}
+
+.btn-search:link, .btn-search:visited {
+  color: #fff;
+}
+
+.btn-search:active, .btn-search:hover {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+.detail_link {
+  color: green;
+  text-decoration: none;
+}
+.edit_link {
+  color: orange;
+  text-decoration: none;
+}
+.delete_link {
+  color: red;
+  text-decoration: none;
+}

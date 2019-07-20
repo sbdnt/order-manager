@@ -1,0 +1,81 @@
+<br/>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Danh sách đơn hàng</div>
+          <div class="panel-body">
+            <div class="well">
+              <%= search_form_for @search do |f| %>
+                <div class="row">
+                  <div class="navbar-header">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= f.text_field :orderID_or_name_or_customer_info_cont, placeholder: "Nhập từ khóa..", autocomplete: :off, class: "form-control" %></li>
+                      <li><%= f.text_field :start_date_gteq, placeholder: "Từ ngày..", autocomplete: :off, class: "form-control datepicker" %></li>
+                      <li><%= f.text_field :start_date_lteq, placeholder: "Đến ngày..", autocomplete: :off, class: "form-control datepicker" %></li>
+                      <li><%= f.submit "Tìm kiếm", class: "btn btn-primary" %></li>
+                    </ul>
+                  </div> 
+                </div>
+              <%end%>
+              <br/>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="btn-group" role="group">
+                    <%= link_to 'Tạo Mới', new_order_path, class: 'btn btn-success' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên đơn hàng</th>
+                  <th>Khách hàng</th>
+                  <th>Kho hàng</th>
+                  <th>Ngày bắt đầu</th>
+                  <th>Ngày giao hàng</th>
+                  <th colspan="3">Tùy Chọn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @orders.each do |order| %>
+                  <tr>
+                    <td><%= order.orderID %></td>
+                    <td><%= order.name %></td>
+                    <td><%= order.customer_info %></td>
+                    <td><%= order.stock_info %></td>
+                    <td><%= order.start_date.strftime("%d/%m/%Y") %></td>
+                    <td><%= order.end_date.strftime("%d/%m/%Y") %></td>
+                    
+                    <td><%= link_to 'Chi tiết', order, class: :detail_link %></td>
+                    <td><%= link_to 'Chỉnh sửa', edit_order_path(order), class: :edit_link %></td>
+                    <td><%= link_to 'Xóa', order, class: :delete_link,method: :delete, data: { confirm: 'Xác Nhận Xóa?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <%= will_paginate @orders, renderer: BootstrapPagination::Rails %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+    format: "yyyy/mm/dd",
+    todayHighlight: true,
+    language: "vi",
+    });
+  });
+</script>
+
+
+

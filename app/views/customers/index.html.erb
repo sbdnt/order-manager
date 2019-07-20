@@ -1,0 +1,54 @@
+<br/>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Danh Sách Khách Hàng</div>
+          <div class="panel-body">
+            <div class="well">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="btn-group" role="group">
+                    <%= link_to 'Tạo Mới', new_customer_path, class: 'btn btn-success' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Tên Khách Hàng</th>
+                  <th>Số Điện Thoại</th>
+                  <th>Địa Chỉ</th>
+                  <th>Thông Tin Phụ</th>
+                  <th>Quốc Gia</th>
+                  <th colspan="3">Tùy Chọn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @customers.each do |customer| %>
+                  <tr>
+                    <td><%= customer.cust_name %></td>
+                    <td><%= customer.cust_phone %></td>
+                    <td><%= customer.cust_address %></td>
+                    <td><%= customer.cust_desc %></td>
+                    <td><%= customer.cust_nation %></td>
+                    
+                    <td><%= link_to 'Chi Tiết', customer, class: :detail_link %></td>
+                    <td><%= link_to 'Chỉnh Sửa',edit_customer_path(customer), class: :edit_link %></td>
+                    <td><%= link_to 'Xóa', customer, class: :delete_link, method: :delete, data: { confirm: 'Xác Nhận Xóa ?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

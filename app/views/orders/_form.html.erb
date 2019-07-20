@@ -1,0 +1,94 @@
+<div class="well">
+  <div class="row">
+    <%= form_with(model: order, local: true) do |form| %>
+      <% if order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+          <ul>
+          <% order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label "Mã đơn hàng:" %>
+          <%= form.text_field :orderID, class: "form-control", readonly: true %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Tên đơn hàng" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Thông Tin Khách Hàng:" %>
+          <%= form.select :customer_info, options_for_select(Customer.pluck(:cust_name), @order.try(:customer_info)), {}, {:class => "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Thông Tin Kho:" %>
+          <%= form.select :stock_info, options_for_select(Stock.pluck(:sto_name), @order.try(:stock_info)), {}, {:class => "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày Bắt Đầu:" %>
+          <%= form.text_field :start_date, class: "form-control datepicker" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày giao hàng:" %>
+          <%= form.text_field :end_date, class: "form-control datepicker" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ghi chú:" %>
+          <%= form.text_field :desc, class: "form-control" %>
+        </div>
+        <div class="actions">
+          <%= form.submit "Đồng Ý", class: "btn btn-primary" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label "Ngày bắt đầu nhập liệu:" %>
+          <%= form.text_field :input_from, class: "form-control datepicker", autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày hoàn thành nhập liệu:" %>
+          <%= form.text_field :input_to, class: "form-control datepicker", autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày bắt đầu lau bóng:" %>
+          <%= form.text_field :clean_from, class: "form-control datepicker", autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày hoàn thành lau bóng:" %>
+          <%= form.text_field :clean_to, class: "form-control datepicker", autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày bắt đầu tách màu:" %>
+          <%= form.text_field :filter_from, class: "form-control datepicker", autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày hoàn thành tách màu:" %>
+          <%= form.text_field :filter_to, class: "form-control datepicker", autocomplete: "off" %>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày bắt đầu đóng bao:"%>
+          <%= form.text_field :package_from, class: "form-control datepicker" , autocomplete: "off"%>
+        </div>
+        <div class="form-group">
+          <%= form.label "Ngày hoàn thành đóng bao:" %>
+          <%= form.text_field :package_to, class: "form-control datepicker" , autocomplete: "off"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+    format: "yyyy/mm/dd",
+    todayHighlight: true,
+    language: "vi",
+    });
+  });
+</script>
+  
